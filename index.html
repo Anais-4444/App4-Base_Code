@@ -30,10 +30,17 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 <head> 
 	<title>Hello World</title>  
-]	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" href="w3.css">
 	<link rel="stylesheet" href="w3-colors-flat.css">
+	
+		<style>
+       			img, object{
+            		max-height:90%;
+        		max-width:90%;
+        		}
+		</style>
 </head> 
 
 <script>
@@ -60,6 +67,9 @@ var uti_count = 0;
         var resultText = document.getElementById("results");
         resultText.innerHTML = "Probability it is a UTI: " + utiPercent.toFixed(2) + "%<br> Probability it is a yeast infection: " + yeastinfectionPercent.toFixed(2) + "%";
 	}
+
+	var resultImage = document.getElementById("resultImage");
+        resultImage.style.display = "block"; // Show the image
 	
 </script>	
 
@@ -166,8 +176,10 @@ var uti_count = 0;
         </div>
         <div id="content" class="w3-container">
             <div id="results"></div>
+		 <img id="resultImage" src="https://www.differencebetween.net/wp-content/uploads/2024/03/UTI-and-Yeast-Infection.jpg" alt="Result Image" style="display: none; max-width: 90%; max-height: 90%; margin-top: 10px;">
             <!-- Button to show the probability distribution of results -->
             <a href="javascript:void(0);" onclick="calculateResults();" class="w3-btn w3-black">Get Results</a>
+		
         </div>
 </div>
 <!-- "DIY!" at the bottom of the pages -->
