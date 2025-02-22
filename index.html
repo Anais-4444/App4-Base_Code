@@ -38,8 +38,29 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <script>
 
-	//YOUR JAVASCRIPT GOES HERE
+var uti_count = 0;
+        var yeastinfection_count = 0;
 
+	// Counts the UTI and the yeast infection responses for calculation of percentages
+        function utiAdd(){
+            uti_count = uti_count + 1;
+        }
+
+        function yeastinfectionAdd(){
+            yeastinfection_count = yeastinfection_count + 1;
+        }
+
+	function calculateResults() {
+        // Adds the total answers from the number of uti and yeast infection responses count, then calculates the percentages
+        var totalAnswers = uti_count + yeastinfection_count;
+        var utiPercent = (uti_count / totalAnswers) * 100;
+        var yeastinfectionPercent = (yeastinfection_count / totalAnswers) * 100;
+
+        // Display the result in the result section
+        var resultText = document.getElementById("results");
+        resultText.innerHTML = "Probability it is a UTI: " + utiPercent.toFixed(2) + "%<br> Probability it is a yeast infection: " + yeastinfectionPercent.toFixed(2) + "%";
+	}
+	
 </script>	
 
 
@@ -68,8 +89,91 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+<!-- Title of the first page-->
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Yeast Infection or Urinary Tract Infection (UTI)?</h1>
+</div>	
+<div id="content" class="w3-container">
+	<p>Are you feeling like you might have a yeast infection, but wonder if it is a UTI? Answer a few short questions to find out!</p>
+
+	<!-- Button to begin the survey -->
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	<!-- Displays disclaimer text below the Get Started button--> 
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+<!-- Question 1 page and header -->
+<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1>
+	</div>
+	<!-- Displays question above buttons-->
+    	<div id="content" class="w3-container">
+        <p>Are you urinating more than usual?</p>   
+	<!-- Buttons - clicking "Yes" adds to the uti count while clicking "No" adds to the yeast infection count-->
+	<a href="#two"  onclick="utiAdd();" class="w3-btn w3-black"> Yes</a>
+	<a href="#two"  onclick="yeastinfectionAdd();" class="w3-btn w3-black">No</a>
+    	</div>
+</div>
+
+<!-- Question 2 page and header -->
+<div class="page" id="two">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	<!-- Displays question above buttons -->
+    	<div id="content" class="w3-container">
+        <p>Are you experiencing itchiness in the genital region?</p>   
+	<!-- Buttons - clicking "Yes" adds to the yeast infection count while clicking "No" adds to the uti count-->
+	<a href="#three"  onclick="yeastinfectionAdd();" class="w3-btn w3-black">Yes</a>
+	<a href="#three"  onclick="utiAdd();" class="w3-btn w3-black"> No</a>
+    	</div>
+</div>	
+
+<!-- Question 3 page and header -->
+<div class="page" id="three">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	<!-- Displays question above buttons -->
+    	<div id="content" class="w3-container">
+        <p>Have you noticed any changes in discharge becoming thicker and white?</p>   
+	<!-- Buttons - clicking "Yes" adds to the yeast infection count while clicking "No" adds to the uti count-->
+	<a href="#four"  onclick="yeastinfectionAdd();" class="w3-btn w3-black">Yes</a>
+	<a href="#four"  onclick="utiAdd();" class="w3-btn w3-black"> No</a>
+    	</div>
+</div>
+
+<!-- Question 4 page and header -->
+<div class="page" id="four">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	<!-- Displays question above buttons -->
+    	<div id="content" class="w3-container">
+        <p>Do you have lower back pain?</p>    
+	<!-- Buttons - clicking "Yes" adds to the uti count while clicking "No" adds to the yeast infection count-->
+	<a href="#five"  onclick="utiAdd();" class="w3-btn w3-black"> Yes</a>
+	<a href="#five"  onclick="yeastinfectionAdd();" class="w3-btn w3-black">No</a>
+    	</div>
+</div>
+
+<!-- Results page and header -->
+<div class="page" id="five">
+        <div class="w3-container w3-flat-carrot">
+            <h1>Results</h1>
+        </div>
+        <div id="content" class="w3-container">
+            <div id="results"></div>
+            <!-- Button to show the probability distribution of results -->
+            <a href="javascript:void(0);" onclick="calculateResults();" class="w3-btn w3-black">Get Results</a>
+        </div>
+</div>
+<!-- "DIY!" at the bottom of the pages -->
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
 	
 </body>
 </html>
