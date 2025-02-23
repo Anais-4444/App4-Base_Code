@@ -34,6 +34,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" href="w3.css">
 	<link rel="stylesheet" href="w3-colors-flat.css">
+	<!-- Sizes the image -->
 		<style>
    			 img, object {
        		 	max-height: 90%;
@@ -65,7 +66,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         // Display the result in the result section
         var resultText = document.getElementById("results");
         resultText.innerHTML = "Probability it is a UTI: " + utiPercent.toFixed(2) + "%<br> Probability it is a yeast infection: " + yeastinfectionPercent.toFixed(2) + "%";
-	
+	//Displays the image in the results portion
 	 var resultImage = document.getElementById("resultImage");
     resultImage.style.display = "block";
 	}
@@ -175,6 +176,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         </div>
         <div id="content" class="w3-container">
             <div id="results"></div>
+		<!-- Displays the image after pressing the "Get Results" button -->
 		<img id="resultImage" src="https://www.differencebetween.net/wp-content/uploads/2024/03/UTI-and-Yeast-Infection.jpg" 
      alt="UTI vs. Yeast Infection" style="display: none;">
             <!-- Button to show the probability distribution of results -->
